@@ -1,0 +1,18 @@
+Table users {
+  id int [pk, increment]
+  firstName varchar [not null]
+  lastName varchar [not null]
+  username varchar [not null, unique]
+  password varchar [not null]
+}
+
+Table items {
+  id int [pk, increment]
+  userId int [not null, ref: > users.id]
+  name varchar [not null]
+  description text [not null]
+  quantity int [not null]
+}
+
+// Relationship
+Ref: items.userId > users.id
