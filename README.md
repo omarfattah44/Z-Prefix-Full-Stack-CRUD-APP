@@ -16,7 +16,7 @@ This Inventory App is a full-stack CRUD application designed for inventory manag
   Protected endpoints are secured using JWT-based authentication. The front end passes the JWT token with API requests that require authorization.
 
 - **Technology Stack:**  
-  - **Front End:** Vite/React with simple, custom CSS (no Bootstrap).  
+  - **Front End:** Vite/React with simple, custom CSS.  
   - **Back End:** Node.js with Express.  
   - **Database:** PostgreSQL, managed with Knex (including migrations and seeds).
 
