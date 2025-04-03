@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Login from './components/Login';
-// import Register from './components/Register';
-// import Inventory from './components/Inventory';
-// import ItemForm from './components/ItemForm';
+import Register from './components/Register';
+import Inventory from './components/Inventory';
+import ItemForm from './components/ItemForm';
 
 function App() {
   return (
