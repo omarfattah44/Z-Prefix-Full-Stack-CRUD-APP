@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
+const authenticateToken = require('../middlewares/authMiddleware');
 
-// Endpoint to get all items
+// GET all items (public endpoint)
 router.get('/', function(req, res) {
   db('items').select('*')
     .then(function(items) {
-      // Optionally truncate description if longer than 100 characters
       const modifiedItems = items.map(function(item) {
         if (item.description && item.description.length > 100) {
           item.description = item.description.substring(0, 100) + '...';
@@ -21,7 +21,7 @@ router.get('/', function(req, res) {
     });
 });
 
-// Endpoint to get an item by id
+// GET an item by id (public endpoint)
 router.get('/:id', function(req, res) {
   const id = req.params.id;
   db('items').where({ id: id }).first()
@@ -37,8 +37,8 @@ router.get('/:id', function(req, res) {
     });
 });
 
-// Endpoint to create a new item
-router.post('/', function(req, res) {
+// POST a new item (protected with JWT token)
+router.post('/', authenticateToken, function(req, res) {
   const userId = req.body.userId;
   const name = req.body.name;
   const description = req.body.description;
@@ -65,8 +65,8 @@ router.post('/', function(req, res) {
     });
 });
 
-// Endpoint to update an item
-router.put('/:id', function(req, res) {
+// PUT (update) an existing item (protected with JWT token)
+router.put('/:id', authenticateToken, function(req, res) {
   const id = req.params.id;
   const name = req.body.name;
   const description = req.body.description;
@@ -88,8 +88,8 @@ router.put('/:id', function(req, res) {
     });
 });
 
-// Endpoint to delete an item
-router.delete('/:id', function(req, res) {
+// DELETE an item (protected with JWT token)
+router.delete('/:id', authenticateToken, function(req, res) {
   const id = req.params.id;
   db('items').where({ id: id }).del()
     .then(function(deletedCount) {
