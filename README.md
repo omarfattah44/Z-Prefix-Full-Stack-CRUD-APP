@@ -179,7 +179,7 @@ Navigate to http://localhost:3000 to see the Inventory App in action. You can no
 
 **Tooling and Guidance:**
 
-- Referencing past projects using ChatGPT to provide mentorship on best practices and potential project structure,served to be very useful. This is because it made useful recommendations to fulfill user requirements (i.e the JWT token for authentication) while still allowing me to do the code.
+- Referencing past projects and using ChatGPT to provide mentorship on best practices and potential project structure,served to be very useful. This is because it made useful recommendations to fulfill user requirements (i.e the JWT token for authentication) while still allowing me to do the code.
 
 -Copilot, youtube, and google searches assisted with troubleshooting specific issues.
 
