@@ -1,4 +1,4 @@
-/* src/styles/index.css */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -58,4 +58,8 @@ table, th, td {
 th, td {
   padding: 10px;
   text-align: left;
+}
+
+.alert {
+  color: red;
 }
